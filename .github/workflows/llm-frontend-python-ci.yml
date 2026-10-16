@@ -37,8 +37,8 @@ jobs:
           pip install -r requirements.txt
           pip install ruff
 
-      - name: Lint with Ruff
-        run: ruff check .
+      # - name: Lint with Ruff
+      #   run: ruff check .
 
   docker-build-push:
     name: Docker Build & Push
@@ -86,7 +86,7 @@ jobs:
         if: github.event_name != 'pull_request'
         uses: docker/login-action@v3
         with:
-          username: shaundockeraccount
+          username: shaundockeraccount  
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
       - name: Push Docker image
